@@ -9,11 +9,11 @@ app.set('view engine', 'handlebars')
 app.use((req, res, next) => {
   const startTime = Date.now()
   const startTimeRegular = new Date(startTime)
-  console.log('startTime:', startTimeRegular.toLocaleString(), '|', req.method, 'from', req.originalUrl)
+  console.log(`startTime: ${startTimeRegular.toLocaleString()} | ${req.method} from ${req.originalUrl}`)
   res.on('finish', () => {
     const endTime = Date.now()
     const endTimeRegular = new Date(endTime)
-    console.log('endTime:', endTimeRegular.toLocaleString(), '|', req.method, 'from', req.originalUrl, '|', 'total time:', endTime - startTime)
+    console.log(`endTime: ${endTimeRegular.toLocaleString()} | ${req.method} from ${req.originalUrl} | total time: ${endTime - startTime}`)
   })
   next()
 })
